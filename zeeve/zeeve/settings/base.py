@@ -40,7 +40,7 @@ DJANGO_APPS = (
 )
 
 LOCAL_APPS = (
-    'apps.events',
+    'modules.events',
 )
 
 THIRD_PARTY_APPS = ()
