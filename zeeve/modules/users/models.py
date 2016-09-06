@@ -2,12 +2,12 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
 
+
 # Create your models here.
 class UserManager(BaseUserManager, models.Manager):
 
     def _create_user(self, username, email, password,
                      is_staff, is_superuser, **extra_fields):
-
 
         email = self.normalize_email(email)
         if not email:
@@ -20,7 +20,7 @@ class UserManager(BaseUserManager, models.Manager):
         user.save(using=self._db)
         return user
 
-    def create_user(self, username, email, password='Compartamos2016', **extra_fields):
+    def create_user(self, username, email, password, **extra_fields):
         return self._create_user(
             username, email, password, False, False, **extra_fields)
 
@@ -34,12 +34,12 @@ class User(AbstractBaseUser, PermissionsMixin, models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=20)
     lastname = models.CharField(max_length=20)
-    username = models.CharField(max_length=20,unique=True)
+    username = models.CharField(max_length=20, unique=True)
     email = models.EmailField(unique=True)
     age = models.IntegerField()
     events = models.ManyToManyField()
     band = models.ForeignKey()
-    bar   = models.ForeignKey()
+    bar = models.ForeignKey()
 
     objects = UserManager()
 
@@ -51,8 +51,6 @@ class User(AbstractBaseUser, PermissionsMixin, models.Model):
 
     class Meta:
         unique_together = ('banda', 'id')
-
-
 
     def get_short_name(self):
         return self.username

@@ -10,9 +10,6 @@ class Events(models.Model):
     nombre = models.CharField(max_length=50)
     fecha = models.DateField()
     bandas = models.ManyToManyField()
-    bar  = models.ForeignKey()
-    photos =  models.ImageField(upload_to='/media/images')
+    bar = models.ForeignKey()
+    photos = models.ImageField(upload_to='/media/images')
     tags = ArrayField(models.CharField(max_length=200), blank=True)
-
-
-
