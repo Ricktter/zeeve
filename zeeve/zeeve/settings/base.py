@@ -41,6 +41,9 @@ DJANGO_APPS = (
 
 LOCAL_APPS = (
     'modules.events',
+    'modules.bars',
+    'modules.users',
+    'modules.bands'
 )
 
 THIRD_PARTY_APPS = ()
@@ -82,6 +85,8 @@ WSGI_APPLICATION = 'zeeve.wsgi.application'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
+
+AUTH_USER_MODEL = 'users.User'
 
 AUTH_PASSWORD_VALIDATORS = [
     {

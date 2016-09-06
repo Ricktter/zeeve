@@ -10,4 +10,4 @@ class Band(models.Model):
     logo = models.ImageField(upload_to='/media/images/')
     slogan = models.CharField(max_length=50)
     music = ArrayField(models.CharField(max_length=200))
-    tags = ArrayField(models.CharField(max_length=200), blank=True)
+    tags = ArrayField(models.CharField(max_length=200, blank=True))
