@@ -39,8 +39,8 @@ class User(AbstractBaseUser, PermissionsMixin, models.Model):
     lastname = models.CharField(max_length=20)
     username = models.CharField(max_length=20, unique=True)
     email = models.EmailField(unique=True)
-    age = models.IntegerField()
-    events = models.ManyToManyField(Events, null=True, blank=True)
+    age = models.IntegerField(null=True, blank=True)
+    events = models.ManyToManyField(Events, blank=True)
     band = models.ForeignKey(
         Band, on_delete=models.CASCADE, null=True, blank=True)
     bar = models.ForeignKey(
