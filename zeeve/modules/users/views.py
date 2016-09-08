@@ -11,6 +11,8 @@ def index(request):
 
 def userlogin(request):
     if request.method == "POST":
+        login = LoginForm()
+        user_register = UserRegisterForm()
         if 'register_form' in request.POST:
             user_register = UserRegisterForm(request.POST)
             if user_register.is_valid():
@@ -29,9 +31,9 @@ def userlogin(request):
                 return redirect('/')
     else:
         user_register = UserRegisterForm()
-        login_form = LoginForm()
+        login = LoginForm()
     return render(request, 'users/login.html',
-                  {'user_register': user_register, 'login_form': login_form})
+                  {'user_register': user_register, 'login_form': login})
 
 
 def LogOut(request):
