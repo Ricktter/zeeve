@@ -32,7 +32,9 @@
   <div class="container text-center">
     <h1>Zeeve</h1>
     <p>Bienvenido a Zeeve</p>
-    <p>¡<a href="{% url 'users:login' %}" role="button">Registrate</a> y crea tu evento ahora!</p>
+    {% if not user.is_authenticated %}
+        <p>¡<a href="{% url 'users:login' %}" role="button">Registrate</a> y crea tu evento ahora!</p>
+    {% endif%}
   </div>
 </div>
 
